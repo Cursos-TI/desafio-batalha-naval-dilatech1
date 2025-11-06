@@ -1,48 +1,62 @@
-/* Nível Aventureiro - Tabuleiro 10x10 com 4 navios (incluindo dois na diagonal) */
+/*
+    Desafio Batalha Naval – Nível Aventureiro
+
+    Objetivos:
+    - Criar um tabuleiro 10x10 usando matriz.
+    - Posicionar 4 navios: um horizontal, um vertical e dois na diagonal.
+    - Mostrar o tabuleiro completo no final (0 = vazio, 3 = navio).
+*/
+
 #include <stdio.h>
 
+#define TAM 10
+#define NAVIO 3
 
-void print_int_matrix(int rows, int cols, int mat[rows][cols]){
-for(int i=0;i<rows;i++){
-for(int j=0;j<cols;j++){
-printf("%d ", mat[i][j]);
-}
-printf("
-");
-}
-}
+int main() {
 
+    int tab[TAM][TAM];
 
-int main(){
-const int N = 10;
-int tab[N][N];
+    // Primeiro, deixo todo o tabuleiro zerado
+    for (int i = 0; i < TAM; i++) {
+        for (int j = 0; j < TAM; j++) {
+            tab[i][j] = 0;
+        }
+    }
 
+    // -----------------------------------------------------
+    // Colocando os navios (tudo feito manualmente no código)
+    // -----------------------------------------------------
 
-for(int i=0;i<N;i++){
-for(int j=0;j<N;j++){
-tab[i][j] = 0;
-}
-}
+    // Navio horizontal (linha 2, colunas 3 até 6)
+    for (int j = 3; j < 3 + 4; j++) {
+        tab[2][j] = NAVIO;
+    }
 
+    // Navio vertical (coluna 8, linhas 5 até 7)
+    for (int i = 5; i < 5 + 3; i++) {
+        tab[i][8] = NAVIO;
+    }
 
-int n1_row = 2, n1_col = 3, n1_len = 4;
-for(int k=0;k<n1_len;k++) tab[n1_row][n1_col + k] = 3;
+    // Navio diagonal desc (0,0) até (3,3)
+    for (int k = 0; k < 4; k++) {
+        tab[0 + k][0 + k] = NAVIO;
+    }
 
+    // Navio diagonal ascendente (6,2) até (4,4)
+    for (int k = 0; k < 3; k++) {
+        tab[6 - k][2 + k] = NAVIO;
+    }
 
-int n2_col = 8, n2_row = 5, n2_len = 3;
-for(int k=0;k<n2_len;k++) tab[n2_row + k][n2_col] = 3;
+    // -----------------------------------------------------
+    // Exibe o tabuleiro completo
+    // -----------------------------------------------------
 
+    for (int i = 0; i < TAM; i++) {
+        for (int j = 0; j < TAM; j++) {
+            printf("%d ", tab[i][j]);
+        }
+        printf("\n");
+    }
 
-int n3_start_r = 0, n3_start_c = 0, n3_len = 4;
-for(int k=0;k<n3_len;k++) tab[n3_start_r + k][n3_start_c + k] = 3;
-
-
-int n4_start_r = 6, n4_start_c = 2, n4_len = 3;
-for(int k=0;k<n4_len;k++) tab[n4_start_r - k][n4_start_c + k] = 3;
-
-
-print_int_matrix(N, N, tab);
-
-
-return 0;
+    return 0;
 }
