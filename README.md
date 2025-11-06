@@ -1,85 +1,46 @@
-# 🛳️ Desafio Batalha Naval – Nível Aventureiro
+🛳️ Desafio – Batalha Naval (Nível Aventureiro)
 
-Este repositório contém a implementação do **Nível Aventureiro** do desafio "Batalha Naval" proposto pela equipe de ensino MateCheck.
+Este código faz parte do desafio proposto no curso para trabalhar com matrizes em C.
 
-O objetivo deste nível é trabalhar com **vetores bidimensionais (matrizes)**, posicionar **quatro navios** no tabuleiro e exibir toda a matriz com indicações das posições ocupadas.
+No nível Aventureiro, o objetivo é montar um tabuleiro 10x10 e posicionar 4 navios:
 
----
+1 navio horizontal
 
-## ✅ **Descrição do Nível Aventureiro**
+1 navio vertical
 
-No Nível Aventureiro, o sistema deve:
+2 navios posicionados na diagonal (uma descendo e outra subindo)
 
-* Criar um **tabuleiro 10x10** usando uma matriz de inteiros.
-* Posicionar **quatro navios**, sendo:
+Cada navio é representado pelo número 3 no tabuleiro.
+As posições vazias são marcadas com 0.
 
-  * 1 navio horizontal
-  * 1 navio vertical
-  * 2 navios posicionados **na diagonal** (um descendente e um ascendente)
-* Preencher o tabuleiro usando:
+No final, o programa mostra toda a matriz no console.
 
-  * **0** para posições vazias
-  * **3** para posições ocupadas por navios
-* Exibir **toda a matriz completa** utilizando `printf`.
+✅ Como compilar
 
----
+No terminal:
 
-## 🧩 **Como o Tabuleiro Funciona**
-
-Cada navio é representado pelo número **3**, enquanto posições vazias têm o valor **0**.
-
-Exemplo de saída (parcial):
-
-```
-0 0 0 0 0 0 0 0 3 0
-0 0 0 0 0 0 0 0 3 0
-0 0 0 3 3 3 3 0 3 0
-...
-```
-
----
-
-## 🧪 **Como executar o programa**
-
-### 🖥️ Compilador online:
-
-🔗 [https://www.onlinegdb.com/online_c_compiler](https://www.onlinegdb.com/online_c_compiler)
-
-1. Copie o conteúdo do arquivo `Batalha_Naval.c`
-2. Cole no editor
-3. Clique em **Run**
-
-### 🖥️ Localmente com GCC
-
-```
-gcc -o batalha Batalha_Naval.c
+gcc batalha_aventureiro.c -o batalha
 ./batalha
-```
 
----
+✅ O que o programa faz
 
-## 📂 Estrutura do Repositório
+Cria um tabuleiro 10x10.
 
-```
-📁 batalha-naval
- ├── Batalha_Naval.c   # Código-fonte do Nível Aventureiro
- └── README.md         # Documentação do projeto
-```
+Preenche tudo inicialmente com zeros.
 
----
+Coloca os navios manualmente no código (posições fixas).
 
-## ✨ Melhorias Futuras
+Mostra o tabuleiro completo usando printf.
 
-* Implementar modo  Mestre
-* Criar versão interativa com entrada do usuário
+✅ Exemplo de saída
 
----
+A saída vai mostrar linhas e colunas como:
+
+3 0 0 3 3 3 3 0 0 0
+0 0 3 0 0 0 0 0 0 0
+...
+
 
 ## 👩‍💻 Autora
 
 Projeto desenvolvido por **Dila Luiz Oliveira**
-
----
-
-Se quiser adicionar prints, exemplos ou diagramas, posso incluir no README também!
-
