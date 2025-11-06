@@ -1,40 +1,48 @@
+/* Nível Aventureiro - Tabuleiro 10x10 com 4 navios (incluindo dois na diagonal) */
 #include <stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
 
-int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+void print_int_matrix(int rows, int cols, int mat[rows][cols]){
+for(int i=0;i<rows;i++){
+for(int j=0;j<cols;j++){
+printf("%d ", mat[i][j]);
+}
+printf("
+");
+}
+}
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
 
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
+int main(){
+const int N = 10;
+int tab[N][N];
 
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+for(int i=0;i<N;i++){
+for(int j=0;j<N;j++){
+tab[i][j] = 0;
+}
+}
 
-    return 0;
+
+int n1_row = 2, n1_col = 3, n1_len = 4;
+for(int k=0;k<n1_len;k++) tab[n1_row][n1_col + k] = 3;
+
+
+int n2_col = 8, n2_row = 5, n2_len = 3;
+for(int k=0;k<n2_len;k++) tab[n2_row + k][n2_col] = 3;
+
+
+int n3_start_r = 0, n3_start_c = 0, n3_len = 4;
+for(int k=0;k<n3_len;k++) tab[n3_start_r + k][n3_start_c + k] = 3;
+
+
+int n4_start_r = 6, n4_start_c = 2, n4_len = 3;
+for(int k=0;k<n4_len;k++) tab[n4_start_r - k][n4_start_c + k] = 3;
+
+
+print_int_matrix(N, N, tab);
+
+
+return 0;
 }
